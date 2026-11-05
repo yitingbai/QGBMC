@@ -1,0 +1,8 @@
+{
+  "variant": [
+    "full",
+    "wo_vqe",
+    "wo_qgm",
+    "wo_sca"
+  ]
+}

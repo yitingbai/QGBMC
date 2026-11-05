@@ -1,0 +1,25 @@
+{
+  "hidden": [
+    16
+  ],
+  "latent": 8,
+  "epochs": 2,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "clusters": 4,
+  "device": "cpu",
+  "seed": 0,
+  "alpha": 1.0,
+  "gamma": 3.0,
+  "tau": 0.6,
+  "rho": 2.0,
+  "kappa": 1.0,
+  "beta": 1.0,
+  "lambda_sca": 1.0,
+  "temperature": 0.5,
+  "gamma_reg": 0.0001,
+  "variant": "full",
+  "quality_gradient": false,
+  "noise_rate": 0.0,
+  "noise_views": []
+}

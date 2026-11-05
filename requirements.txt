@@ -1,0 +1,8 @@
+numpy==1.26.4
+scipy==1.13.1
+scikit-learn==1.6.1
+torch==2.1.2
+PyYAML==6.0.2
+pytest==8.4.2
+munkres==1.1.4
+

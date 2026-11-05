@@ -1,0 +1,90 @@
+{
+  "method": "COMPLETER",
+  "protocol": "official code; complete data (missing_rate=0)",
+  "dataset": "Caltech101-20",
+  "official_root": "PROJECT_ROOT\\_external_baselines\\COMPLETER",
+  "official_commit": "624dd9fd10431802214fab1d7b34c44f5a0a92df",
+  "config": {
+    "Prediction": {
+      "arch1": [
+        128,
+        256,
+        128
+      ],
+      "arch2": [
+        128,
+        256,
+        128
+      ]
+    },
+    "Autoencoder": {
+      "arch1": [
+        1984,
+        1024,
+        1024,
+        1024,
+        128
+      ],
+      "arch2": [
+        512,
+        1024,
+        1024,
+        1024,
+        128
+      ],
+      "activations1": "relu",
+      "activations2": "relu",
+      "batchnorm": true
+    },
+    "training": {
+      "seed": 4,
+      "missing_rate": 0,
+      "start_dual_prediction": 100,
+      "batch_size": 256,
+      "epoch": 10,
+      "lr": 0.0001,
+      "alpha": 9,
+      "lambda1": 0.1,
+      "lambda2": 0.1
+    },
+    "dataset": "Caltech101-20",
+    "print_num": 10
+  },
+  "device": "cuda:0",
+  "torch": "2.1.2+cu121",
+  "timestamp": "2026-11-02T03:16:59.222265+00:00",
+  "runs": [
+    {
+      "seed": 0,
+      "ACC": 0.5142,
+      "NMI": 0.5083,
+      "ARI": 0.3606,
+      "training_seconds": 2.9291187999999995,
+      "peak_cuda_allocated_bytes": 382081024,
+      "peak_cuda_reserved_bytes": 440401920
+    }
+  ],
+  "summary": {
+    "ACC": {
+      "mean": 0.5142,
+      "std": null,
+      "n_seeds": 1
+    },
+    "NMI": {
+      "mean": 0.5083,
+      "std": null,
+      "n_seeds": 1
+    },
+    "ARI": {
+      "mean": 0.3606,
+      "std": null,
+      "n_seeds": 1
+    },
+    "training_seconds": {
+      "mean": 2.9291187999999995,
+      "std": null,
+      "n_seeds": 1
+    }
+  },
+  "source": "measured baseline; not copied from the paper"
+}

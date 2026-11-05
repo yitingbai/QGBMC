@@ -1,0 +1,99 @@
+run_root: ../runs
+
+defaults:
+  hidden: [256, 128]
+  latent: 64
+  epochs: 50
+  batch_size: 256
+  learning_rate: 0.001
+  device: auto
+  alpha: 1.0
+  gamma: 3.0
+  tau: 0.6
+  rho: 2.0
+  kappa: 1.0
+  beta: 1.0
+  lambda_sca: 1.0
+  temperature: 0.5
+  gamma_reg: 0.0001
+  quality_gradient: false
+  log_gradient_norms: false
+  pretrain_epochs: 0
+  quality_mode: absolute
+  reconstruction_normalization: per_sample_sum
+  kmeans_mode: auto
+  kmeans_n_init: 20
+  kmeans_batch_size: 8192
+  log_every: 10
+
+datasets:
+  caltech101_20:
+    path: ../data/caltech101_20.npz
+    clusters: 20
+    noise_views: [0]
+  scene15:
+    path: ../data/scene15.npz
+    clusters: 15
+    noise_views: [0]
+  caltech101_20_completer2:
+    path: ../data/caltech101_20_completer2.npz
+    clusters: 20
+    noise_views: [0]
+  scene15_completer2:
+    path: ../data/scene15_completer2.npz
+    clusters: 15
+    noise_views: [0]
+  aloi_1k:
+    path: ../data/aloi_1k.npz
+    clusters: 1000
+    noise_views: [0]
+    overrides:
+      epochs: 20
+      kmeans_mode: minibatch
+      kmeans_n_init: 3
+  handwritten6:
+    path: ../data/handwritten6.npz
+    clusters: 10
+    noise_views: [0]
+  handwritten2:
+    path: ../data/handwritten2.npz
+    clusters: 10
+    noise_views: [0]
+  hdigit:
+    path: ../data/hdigit.npz
+    clusters: 10
+    noise_views: [0]
+  mnist3_reconstructed:
+    path: ../data/mnist3_reconstructed_60000.npz
+    clusters: 10
+    noise_views: [0]
+    provenance: reconstructed_protocol_not_original_code
+    overrides:
+      quality_mode: relative
+      reconstruction_normalization: per_feature_mean
+      gamma: 2.0
+      tau: 0.36787944117144233
+      sca_mode: weighted
+      kmeans_mode: minibatch
+      kmeans_n_init: 3
+  cifar4_reconstructed:
+    path: ../data/cifar4_reconstructed_60000.npz
+    clusters: 10
+    noise_views: [0]
+    provenance: reconstructed_protocol_not_original_code
+    overrides:
+      quality_mode: relative
+      reconstruction_normalization: per_feature_mean
+      gamma: 2.0
+      tau: 0.36787944117144233
+      sca_mode: weighted
+      kmeans_mode: minibatch
+      kmeans_n_init: 3
+
+protocol:
+  seeds: [0, 1, 2]
+  quality_variants: [full, uniform_quality, shuffled_quality]
+  module_variants: [wo_qgm, wo_sca]
+  noise_modes: [element_gaussian, sample_gaussian]
+  noise_rates: [0.0, 0.3, 0.6, 0.9]
+
